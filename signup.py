@@ -62,3 +62,8 @@ else:
 
     # Close database connection
     conn.close()
+
+# Respond with a redirect to address.html
+    print("Content-Type: text/html")
+    print("Location: address.html")  # Redirect to address.html
+    print()  # Print an empty line to indicate the end of headers
