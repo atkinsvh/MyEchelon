@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrator Portal</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #3b9a0b;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #f2f2f2;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #333;
+        }
+        nav a:hover {
+            background-color: #ddd;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        #stats {
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Administrator Portal</h1>
+    </header>
+    <nav>
+            <a href="#" onclick="forceLogout()">Force LogOut</a>
+        <a href="#" onclick="clearDBCache()">Clear DB Cache</a>
+        <a href="#" onclick="emptyLogs()">Empty Logs</a>
+        <a href="#" onclick="backupUsers()">Backup Users</a>
+        <a href="#" onclick="powerOff()">Power Off</a>
+        <a href="index.html" >Go back Home</a>
+    </nav>
+    <div id="stats">
+        <!-- Server stats will be displayed here -->
+    </div>
+    <footer>
+        Copyright 2024 Darien Entwistle
+    </footer>
+
+    <!-- Add your JavaScript for button actions here -->
+    <script>
+        function forceLogout() {
+            // Add your SSH command to log out active users on CentOS server
+        }
+
+        function clearDBCache() {
+            // Add your command to clear SQLite3 database cache locally
+        }
+
+        function emptyLogs() {
+            // Add your SSH command to delete log files on the server
+        }
+
+        function backupUsers() {
+            // Add your command to backup users.db file
+        }
+
+        function powerOff() {
+            // Add your SSH command to power off the server
+        }
+
+        // Function to fetch server stats and display them
+        function fetchServerStats() {
+            // Example of fetching server stats
+            // Replace this with actual code to fetch server stats
+            const stats = {
+                CPU: "70%",
+                Memory: "80%",
+                Disk: "60%"
+            };
+
+            // Construct HTML to display server stats
+            let statsHTML = "<h2>Server Stats</h2><ul>";
+            for (const [key, value] of Object.entries(stats)) {
+                statsHTML += `<li>${key}: ${value}</li>`;
+            }
+            statsHTML += "</ul>";
+
+            // Display server stats in the stats div
+            document.getElementById("stats").innerHTML = statsHTML;
+        }
+
+        // Call the fetchServerStats function when the page loads
+        window.onload = fetchServerStats;
+    </script>
+</body>
+</html>
