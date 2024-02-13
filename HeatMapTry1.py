@@ -119,7 +119,7 @@ locations = df[['Latitude', 'Longitude']].values.tolist()
 # Add heatmap layer
 HeatMap(locations).add_to(m)
 
-m.show()
+pyscript.write(m)
 
 # Save the map as an HTML file
 # m.save('/Users/djentwistle/Downloads/gps2shp/heatmap.html')
