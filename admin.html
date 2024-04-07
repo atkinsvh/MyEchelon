@@ -68,7 +68,7 @@
     <script>
         function forceLogout() {
             // Example SSH command to force logout active users on CentOS server
-            alert("ssh username@hostname 'pkill -u username'");
+            alert("ssh djadmin@192.168.4.94 'pkill -u djadmin'");
         }
         
         function clearDBCache() {
@@ -78,7 +78,7 @@
         
         function emptyLogs() {
             // Example SSH command to delete log files on the server
-            alert("ssh username@hostname 'rm -rf /path/to/logs/*'");
+            alert("ssh djadmin@192.168.4.94 'rm -rf /var/logs/*'");
         }
         
         function backupUsers() {
@@ -88,7 +88,7 @@
         
         function powerOff() {
             // Example SSH command to power off the server
-            alert("ssh username@hostname 'sudo shutdown -h now'");
+            alert("ssh djadmin@192.168.4.94 'sudo shutdown -h now'");
         }
         
         // Function to fetch server stats and display them
