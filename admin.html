@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrator Portal</title>
-      <link rel="stylesheet" type="text/css" href="Door2Door.css">
     <style>
         /* Add your CSS styles here */
         body {
@@ -51,7 +50,7 @@
         <h1>Administrator Portal</h1>
     </header>
     <nav>
-            <a href="#" onclick="forceLogout()">Force LogOut</a>
+        <a href="#" onclick="forceLogout()">Force LogOut</a>
         <a href="#" onclick="clearDBCache()">Clear DB Cache</a>
         <a href="#" onclick="emptyLogs()">Empty Logs</a>
         <a href="#" onclick="backupUsers()">Backup Users</a>
@@ -68,46 +67,56 @@
     <!-- Add your JavaScript for button actions here -->
     <script>
         function forceLogout() {
-            // Add your SSH command to log out active users on CentOS server
+            // Example SSH command to force logout active users on CentOS server
+            alert("ssh username@hostname 'pkill -u username'");
         }
-
+        
         function clearDBCache() {
-            // Add your command to clear SQLite3 database cache locally
+            // Example command to clear SQLite3 database cache locally
+            alert("sqlite3 /path/to/database.db 'PRAGMA cache_size=0;'");
         }
-
+        
         function emptyLogs() {
-            // Add your SSH command to delete log files on the server
+            // Example SSH command to delete log files on the server
+            alert("ssh username@hostname 'rm -rf /path/to/logs/*'");
         }
-
+        
         function backupUsers() {
-            // Add your command to backup users.db file
+            // Example command to backup users.db file
+            alert("cp /path/to/users.db /path/to/backup/location/users_backup.db");
         }
-
+        
         function powerOff() {
-            // Add your SSH command to power off the server
+            // Example SSH command to power off the server
+            alert("ssh username@hostname 'sudo shutdown -h now'");
         }
-
+        
         // Function to fetch server stats and display them
         function fetchServerStats() {
-            // Example of fetching server stats
-            // Replace this with actual code to fetch server stats
-            const stats = {
-                CPU: "70%",
-                Memory: "80%",
-                Disk: "60%"
-            };
-
-            // Construct HTML to display server stats
-            let statsHTML = "<h2>Server Stats</h2><ul>";
-            for (const [key, value] of Object.entries(stats)) {
-                statsHTML += `<li>${key}: ${value}</li>`;
-            }
-            statsHTML += "</ul>";
-
-            // Display server stats in the stats div
-            document.getElementById("stats").innerHTML = statsHTML;
+            // Make a fetch request to your server endpoint that provides server stats
+            fetch('/api/server-stats')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(stats => {
+                    // Construct HTML to display server stats
+                    let statsHTML = "<h2>Server Stats</h2><ul>";
+                    for (const [key, value] of Object.entries(stats)) {
+                        statsHTML += `<li>${key}: ${value}</li>`;
+                    }
+                    statsHTML += "</ul>";
+        
+                    // Display server stats in the stats div
+                    document.getElementById("stats").innerHTML = statsHTML;
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                });
         }
-
+        
         // Call the fetchServerStats function when the page loads
         window.onload = fetchServerStats;
     </script>
